@@ -1,0 +1,3 @@
+---
+api_lb: "algo"
+service_name: "movie-analyst-ui"

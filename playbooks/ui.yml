@@ -1,0 +1,6 @@
+---
+- name: Ui tasks
+  hosts: ui
+  become: yes
+  roles:
+    - ui

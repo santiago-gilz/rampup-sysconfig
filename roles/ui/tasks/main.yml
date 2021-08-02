@@ -1,0 +1,20 @@
+---
+- name: Set api load balancer variable
+  lineinfile:
+    dest: "~/.bashrc"
+    line: "export BACK_HOST={{ api_lb }}"
+    regexp: "export BACK_HOST={{ api_lb }}"
+    insertafter: 'EOF'
+    state: present
+  notify:
+    - "Source the bashrc file"
+
+- name: Clone api repo
+  git:
+    repo: "https://github.com/juan-ruiz/movie-analyst-ui.git"
+    dest: "{{ repo_dir }}"
+
+- name: pm2 configuration
+  include_role:
+    name: common
+    tasks_from: pm2_config

@@ -1,0 +1,6 @@
+---
+- name: Api tasks
+  hosts: api
+  become: yes
+  roles:
+    - api

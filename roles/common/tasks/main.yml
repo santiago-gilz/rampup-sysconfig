@@ -1,0 +1,20 @@
+---
+- name: Enable nodejs 14
+  shell: 
+    cmd: "sudo dnf module enable nodejs:14 -y"
+    warn: no
+
+- name: Install dependencies
+  become: yes
+  dnf:
+    name:
+      - git
+      - nodejs
+    state: present
+
+- name: Install npm pm2
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    state: present
