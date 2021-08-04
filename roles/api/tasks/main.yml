@@ -1,0 +1,20 @@
+---
+- name: Set api access port variable
+  lineinfile:
+    dest: "~/.bashrc"
+    line: "export PORT={{ api_access_port }}"
+    regexp: "export PORT={{ api_access_port }}"
+    insertafter: 'EOF'
+    state: present
+  notify:
+    - "Source the bashrc file"
+
+- name: Clone api repo
+  git:
+    repo: "https://github.com/juan-ruiz/movie-analyst-api.git"
+    dest: "{{ repo_dir }}"
+
+- name: pm2 configuration
+  include_role:
+    name: common
+    tasks_from: pm2_config
