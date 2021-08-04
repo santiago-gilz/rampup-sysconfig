@@ -1,6 +1,6 @@
 ---
 - name: Ui tasks
-  hosts: ui
-  become: yes
+  hosts: default
   roles:
+    - common
     - ui

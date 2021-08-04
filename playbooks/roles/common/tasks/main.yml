@@ -14,7 +14,7 @@
 
 - name: Install npm pm2
   become: yes
-  npm:
+  community.general.npm:
     name: pm2
     global: yes
     state: present

@@ -1,6 +1,6 @@
 ---
 - name: Api tasks
-  hosts: api
-  become: yes
+  hosts: default
   roles:
+    - common
     - api

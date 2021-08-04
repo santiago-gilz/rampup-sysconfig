@@ -1,12 +1,13 @@
 ---
 - name: Install project npm dependencies
-  npm:
+  community.general.npm:
     path: "{{ repo_dir }}"
 
 - name: Check whether pm2 is running
   shell:
     cmd: 'pm2 status | grep -q "{{ service_name }}.*online"'
     warn: no
+  ignore_errors: yes
   register: pm2_service_state
 
 - name: Start pm2 service
@@ -19,6 +20,7 @@
   shell:
     cmd: 'systemctl status pm2-$USER | grep -q enabled'
     warn: no
+  ignore_errors: yes
   register: pm2_service_enabled
 
 - name: Enable pm2 service
