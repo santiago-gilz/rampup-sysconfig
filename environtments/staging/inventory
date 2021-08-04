@@ -1,5 +1,5 @@
 [all:vars]
-ansible_user={{ ansible_user }}
+ansible_user=centos
 ansible_python_interpreter=/usr/libexec/platform-python
 ansible_connection=ssh
 

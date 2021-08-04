@@ -1,3 +1,2 @@
 ---
-user: centos
-repo_dir: "/home/{{ user }}/movie-analyst"
+repo_dir: "/home/centos/movie-analyst"
