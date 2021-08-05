@@ -1,0 +1,33 @@
+---
+- name: Install project npm dependencies
+  community.general.npm:
+    path: "{{ repo_dir }}"
+
+- name: Check whether pm2 is running
+  shell:
+    cmd: 'pm2 status | grep -q "{{ service_name }}.*online"'
+    warn: no
+  ignore_errors: yes
+  register: pm2_service_state
+
+- name: Start pm2 service
+  shell:
+    cmd: 'pm2 start -x -i max --name "{{ service_name }}" {{ repo_dir }}/server.js'
+    warn: no
+  when: pm2_service_state.rc != 0
+
+- name: Check whether pm2 is enabled
+  shell:
+    cmd: 'systemctl status pm2-$USER | grep -q enabled'
+    warn: no
+  ignore_errors: yes
+  register: pm2_service_enabled
+
+- name: Enable pm2 service
+  shell:
+    cmd: |
+      pm2 startup systemd -u $USER --hp $HOME
+      sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u $USER --hp $HOME
+      pm2 save
+    warn: no
+  when: pm2_service_enabled.rc != 0

@@ -1,0 +1,6 @@
+---
+- name: Ui tasks
+  hosts: default
+  roles:
+    - common
+    - ui

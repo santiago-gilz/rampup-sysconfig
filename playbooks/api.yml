@@ -1,0 +1,6 @@
+---
+- name: Api tasks
+  hosts: default
+  roles:
+    - common
+    - api
