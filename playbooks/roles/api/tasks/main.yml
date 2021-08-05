@@ -6,8 +6,11 @@
     regexp: "export PORT={{ api_access_port }}"
     insertafter: 'EOF'
     state: present
-  notify:
-    - "Source the bashrc file"
+
+- name: Source the bashrc file
+  shell: 
+    cmd: "source ~/.bashrc"
+    warn: no
 
 - name: Clone api repo
   git:
