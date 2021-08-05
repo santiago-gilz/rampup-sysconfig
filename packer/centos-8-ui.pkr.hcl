@@ -65,5 +65,6 @@ build {
     inventory_directory = "../environments/staging"
     playbook_file       = "../playbooks/ui.yml"
     roles_path          = "../roles"
+    extra_arguments     = ["--extra-vars", "'api_lb_ip=elb.movie_analyst.internal'"]
   }
 }

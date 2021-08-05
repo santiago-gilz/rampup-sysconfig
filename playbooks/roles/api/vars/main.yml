@@ -1,3 +1,2 @@
 ---
-api_access_port: 3000
 service_name: "movie-analyst-api"

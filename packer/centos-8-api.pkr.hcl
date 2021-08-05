@@ -33,13 +33,13 @@ variable "common_tags" {
 }
 
 source "amazon-ebs" "api_centos8" {
-  ami_description  = "AMI for providing Movie Analyst API"
-  ami_name         = "api-centos8"
-  instance_type    = var.AWS_INSTANCE_TYPE
-  region           = var.AWS_REGION
-  run_tags         = var.common_tags
-  run_volume_tags  = var.common_tags
-  ssh_username     = "centos"
+  ami_description = "AMI for providing Movie Analyst API"
+  ami_name        = "api-centos8"
+  instance_type   = var.AWS_INSTANCE_TYPE
+  region          = var.AWS_REGION
+  run_tags        = var.common_tags
+  run_volume_tags = var.common_tags
+  ssh_username    = "centos"
   source_ami_filter {
     filters = {
       architecture        = "x86_64"
@@ -51,8 +51,8 @@ source "amazon-ebs" "api_centos8" {
     most_recent = true
   }
   subnet_id = "subnet-0088df5de3a4fe490"
-  tags = var.common_tags
-  vpc_id = "vpc-0d2831659ef89870c"
+  tags      = var.common_tags
+  vpc_id    = "vpc-0d2831659ef89870c"
 }
 
 build {
@@ -64,5 +64,6 @@ build {
   provisioner "ansible" {
     inventory_directory = "../environments/staging"
     playbook_file       = "../playbooks/api.yml"
+    extra_arguments     = ["--extra-vars", "'api_access_port=3000'"]
   }
 }
