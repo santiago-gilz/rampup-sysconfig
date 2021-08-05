@@ -33,25 +33,26 @@ variable "common_tags" {
 }
 
 source "amazon-ebs" "ui_centos8" {
-  ami_description  = "AMI for providing Movie Analyst ui"
-  ami_name         = "ui-centos8"
-  instance_type    = var.AWS_INSTANCE_TYPE
-  region           = var.AWS_REGION
-  run_tags         = var.common_tags
-  run_volume_tags  = var.common_tags
-  ssh_keypair_name = var.AWS_KEY_PAIR_NAME
-  ssh_username     = "centos"
+  ami_description = "AMI for providing Movie Analyst ui"
+  ami_name        = "ui-centos8"
+  instance_type   = var.AWS_INSTANCE_TYPE
+  region          = var.AWS_REGION
+  run_tags        = var.common_tags
+  run_volume_tags = var.common_tags
+  ssh_username    = "centos"
   source_ami_filter {
     filters = {
       architecture        = "x86_64"
-      name                = "^CentOS 8*"
+      name                = "CentOS 8*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     owners      = ["125523088429"]
     most_recent = true
   }
-  tags = var.common_tags
+  subnet_id = "subnet-0088df5de3a4fe490"
+  tags      = var.common_tags
+  vpc_id    = "vpc-0d2831659ef89870c"
 }
 
 build {

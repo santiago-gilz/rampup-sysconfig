@@ -62,7 +62,7 @@ build {
   ]
 
   provisioner "ansible" {
-    inventory_directory = "../environtments/staging"
+    inventory_directory = "../environments/staging"
     playbook_file       = "../playbooks/api.yml"
   }
 }
