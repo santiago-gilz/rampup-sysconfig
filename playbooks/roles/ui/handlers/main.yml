@@ -1,5 +1,0 @@
----
-- name: Source the bashrc file
-  shell: 
-    cmd: "source ~/.bashrc"
-    warn: no
