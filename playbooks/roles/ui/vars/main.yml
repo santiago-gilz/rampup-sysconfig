@@ -1,3 +1,2 @@
 ---
-api_lb: "api-lb.movieanalyst.internal"
 service_name: "movie-analyst-ui"
