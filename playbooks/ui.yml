@@ -1,6 +1,8 @@
 ---
 - name: Ui tasks
   hosts: default
+  environment:
+    BACK_HOST: "{{ api_lb_ip }}"
   roles:
     - common
     - ui
