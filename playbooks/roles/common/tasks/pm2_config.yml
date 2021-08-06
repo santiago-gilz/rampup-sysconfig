@@ -3,6 +3,11 @@
   community.general.npm:
     path: "{{ repo_dir }}"
 
+- name: USER
+  shell: 
+    cmd: echo $USER
+    warn: no
+
 - name: Check whether pm2 is running
   shell:
     cmd: 'pm2 status | grep -q "{{ service_name }}.*online"'
