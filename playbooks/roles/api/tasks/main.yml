@@ -1,17 +1,4 @@
 ---
-# - name: Set api access port variable
-#   lineinfile:
-#     dest: "~/.bashrc"
-#     line: "export PORT={{ api_access_port }}"
-#     regexp: "export PORT={{ api_access_port }}"
-#     insertafter: 'EOF'
-#     state: present
-
-# - name: Source the bashrc file
-#   shell: 
-#     cmd: "source ~/.bashrc"
-#     warn: no
-
 - name: Clone api repo
   git:
     repo: "https://github.com/juan-ruiz/movie-analyst-api.git"

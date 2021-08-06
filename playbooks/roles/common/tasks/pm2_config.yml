@@ -31,8 +31,3 @@
       pm2 save
     warn: no
   when: pm2_service_enabled.rc != 0
-
-- name: USER
-  shell: 
-    cmd: echo $USER $BACK_HOST
-    warn: no
