@@ -1,17 +1,4 @@
 ---
-- name: Set api load balancer variable
-  lineinfile:
-    dest: "~/.bashrc"
-    line: "export BACK_HOST={{ api_lb_ip }}"
-    regexp: "export BACK_HOST={{ api_lb_ip }}"
-    insertafter: 'EOF'
-    state: present
-  
-- name: Source the bashrc file
-  shell: 
-    cmd: "source ~/.bashrc"
-    warn: no
-
 - name: Clone api repo
   git:
     repo: "https://github.com/juan-ruiz/movie-analyst-ui.git"

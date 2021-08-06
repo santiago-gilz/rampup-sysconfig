@@ -1,6 +1,8 @@
 ---
 - name: Api tasks
   hosts: default
+  environment:
+    PORT: "{{ api_access_port }}"
   roles:
     - common
     - api
