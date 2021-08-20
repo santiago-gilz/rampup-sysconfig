@@ -1,2 +1,4 @@
 ---
 service_name: "movie-analyst-api"
+docker_image_name: "sgilz/rampup-api:latest"
+PORT: "3000"
