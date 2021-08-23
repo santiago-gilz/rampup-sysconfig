@@ -1,0 +1,14 @@
+---
+- name: 'Create container for app {{ service_name }}'
+  docker_container:
+    name: "{{ service_name }}"
+    image: "{{ docker_image_name }}"
+    state: started
+    pull: yes
+    recreate: yes
+    detach: yes
+    published_ports:
+      - "{{ PORT }}:{{ PORT }}"
+    env:
+      PORT: "{{ PORT }}" # applies for both apps.
+      BACK_HOST: "{{ api_lb_ip | default('') }}" # default for api which does not need it.

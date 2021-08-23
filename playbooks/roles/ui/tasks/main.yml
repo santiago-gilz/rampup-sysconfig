@@ -1,10 +1,5 @@
 ---
-- name: Clone api repo
-  git:
-    repo: "https://github.com/juan-ruiz/movie-analyst-ui.git"
-    dest: "{{ repo_dir }}"
-
-- name: pm2 configuration
+- name: Run the latest Docker image pulled from remote repo
   include_role:
     name: common
-    tasks_from: pm2_config
+    tasks_from: docker_run

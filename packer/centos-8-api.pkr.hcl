@@ -64,6 +64,5 @@ build {
   provisioner "ansible" {
     inventory_directory = "../environments/staging"
     playbook_file       = "../playbooks/api.yml"
-    extra_arguments     = ["--extra-vars", "'api_access_port=3000'"]
   }
 }
