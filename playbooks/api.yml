@@ -1,6 +1,6 @@
 ---
 - name: Api tasks
-  hosts: default
+  hosts: tag_Name_sgilz_api_asg
   roles:
     - common
     - api

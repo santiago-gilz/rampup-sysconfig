@@ -1,6 +1,6 @@
 ---
 - name: Ui tasks
-  hosts: default
+  hosts: tag_Name_sgilz_ui_asg
   roles:
     - common
     - ui
