@@ -1,5 +1,8 @@
-[default]
+[tag_Name_sgilz_ui_asg]
 localhost
+
+[tag_Name_sgilz_api_asg:children]
+tag_Name_sgilz_ui_asg
 
 [all:vars]
 ansible_user=centos
@@ -7,4 +10,4 @@ ansible_python_interpreter=/usr/libexec/platform-python
 ansible_connection=local
 
 [all:children]
-default
+tag_Name_sgilz_api_asg
