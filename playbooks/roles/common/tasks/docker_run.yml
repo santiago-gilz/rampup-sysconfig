@@ -3,10 +3,7 @@
   docker_container:
     name: "{{ service_name }}"
     image: "{{ docker_image_name }}"
-    state: started
     pull: yes
-    recreate: yes
-    detach: yes
     published_ports:
       - "{{ PORT }}:{{ PORT }}"
     env:
